@@ -6,6 +6,7 @@ const FILE_PATH = path.resolve('./modules')
 
 function calculateFuelAmount (mass) {
   const fuelAmount = Math.floor((mass / 3)) - 2
+  console.debug(`Module with mass of ${mass} needs ${fuelAmount} amount of fuel`)
   return fuelAmount
 }
 
@@ -15,12 +16,12 @@ async function main () {
   })
 
   let totalFuel = 0
-  // let fuelBefore = 0
+  let fuelBefore = 0
   for await (const line of rl) {
     let fuelAmount = calculateFuelAmount(line)
     totalFuel += fuelAmount
-    // console.debug(`Module with mass of ${line} needs ${fuelAmount} amount of fuel`)
-    // console.debug(`Total amount of fuel increased from ${fuelBefore} to ${totalFuel}`)
+    fuelBefore = totalFuel - fuelAmount
+    console.debug(`Total amount of fuel increased from ${fuelBefore} to ${totalFuel}`)
   }
 
   console.log(`Total amount of fuel needed: ${totalFuel}`)
