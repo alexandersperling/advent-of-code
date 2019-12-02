@@ -5,6 +5,10 @@ const readline = require('readline')
 const FILE_PATH = path.resolve('./modules')
 
 function calculateFuelAmount (mass) {
+  if (mass === 0) {
+    console.log(`Provided mass with value ${mass}, nothing to calculate`)
+    return 0
+  }
   const fuelAmount = Math.floor((mass / 3)) - 2
   console.debug(`Module with mass of ${mass} needs ${fuelAmount} amount of fuel`)
   return fuelAmount
