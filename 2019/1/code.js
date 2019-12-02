@@ -10,7 +10,7 @@ function calculateFuelAmount (mass) {
     return 0
   }
   const fuelAmount = Math.floor((mass / 3)) - 2
-  console.debug(`Module with mass of ${mass} needs ${fuelAmount} amount of fuel`)
+  console.log(`Module with mass of ${mass} needs ${fuelAmount} amount of fuel`)
   return fuelAmount
 }
 
@@ -25,7 +25,7 @@ async function main () {
     let fuelAmount = calculateFuelAmount(line)
     totalFuel += fuelAmount
     fuelBefore = totalFuel - fuelAmount
-    console.debug(`Total amount of fuel increased from ${fuelBefore} to ${totalFuel}`)
+    console.log(`Total amount of fuel increased from ${fuelBefore} to ${totalFuel}`)
   }
 
   console.log(`Total amount of fuel needed: ${totalFuel}`)
